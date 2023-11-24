@@ -1,0 +1,82 @@
+.header { 
+    height: 75px;
+    padding: 2rem 2rem 1rem 2rem ;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+
+    &__nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 'logo links'; 
+    }
+  
+    &__logo {
+        width: 200px;
+        margin-top: 15px;
+    grid-area: logo;
+      font-size: 1.5rem;
+      color: #333;
+      text-decoration: none;
+  
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  
+    &__links {
+      grid-area: links;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+  
+      }
+    &__user-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 30px;
+    }
+
+    @media (max-width: 460px) {
+
+      &__create-article-button {
+        position: absolute;
+        left: 45px;
+        top: 85px;
+      }
+
+      &__buttons {
+        position: absolute;
+        top: 20px;
+        display: flex;
+        flex-direction: column;
+      }
+
+
+    }
+    @media (max-width: 550px) {
+
+      &__username { 
+        font-size: 14px  !important;
+        position: absolute  !important;
+        top: 25px  !important;
+        right: 75px  !important;
+        margin-right: 15px  !important;
+      }
+
+      &__user-avatar {
+        position: absolute !important;
+        top: 15px !important;
+        right: 35px !important;
+        margin-right: 0;
+      }
+
+      &__logout-button {
+        position: absolute;
+        top: 85px;
+      }
+    }
+    }
+  

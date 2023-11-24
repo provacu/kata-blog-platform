@@ -1,0 +1,40 @@
+.article-page {
+    width: 938px; 
+    margin: 0 auto; 
+    padding: 0 15px; 
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    min-height: 200px;
+  background: #FFFFFF;
+  border-radius: 0px;
+  position: relative;
+
+  &__content {
+    padding: 15px;
+    max-width: 938px;
+    overflow-wrap: break-word;;
+  }
+
+  &__content img {
+    max-width: 100%; ;
+    height: auto;
+  }
+  
+  &__loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  }
+  
+
+  .article-actions {
+    position: absolute;
+    top: 125px;
+    right: 15px;
+
+    display: flex;
+    margin-right: 10px;
+    justify-content: flex-end;
+    gap: 1rem;
+  }

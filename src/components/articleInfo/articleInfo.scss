@@ -1,0 +1,137 @@
+.article-info {
+    display: grid;
+    grid-template-areas: 
+    'content author';
+    grid-template-columns: 2.5fr 1fr;
+
+    &__content {
+      max-width: 100%;
+        grid-area: content;
+        display: flex;
+        flex-direction: column; 
+        justify-content: space-between; 
+        align-items: flex-start; 
+        padding: 15px;
+        overflow-wrap: break-word;
+        word-break: break-all;
+        hyphens: auto;
+    }
+    &__title 
+    {overflow-wrap: break-word !important;
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0 0 15px 0;
+      color: #1890FF;
+
+    }
+
+    &__likes {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &__likes-count {
+      top: 6.5px;
+      position: relative;
+    }
+
+    &__like-section {
+      overflow-wrap: break-word !important;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+    
+    
+
+    &__tags {
+      margin-bottom: 15px;
+    }
+  
+    &__description {
+      overflow-wrap: break-word;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      color: gray;
+    }
+  
+    &__author-info {
+      grid-area: author;
+      display: grid;
+      grid-template-areas: 
+      'author avatar'
+      'date avatar'; 
+      align-items: end;
+      padding: 15px; 
+      height: 50%;
+    }
+  
+    &__author {
+      position: absolute;
+      top: 15px;
+      right: 75px;
+      grid-area: author;
+      margin: 0;
+      font-size: 22px;
+    }
+  
+    &__date {
+      position: absolute;
+      top: 45px;
+      right: 75px;
+      grid-area: date;
+      margin: 0;
+      color: gray;
+      min-width: 5rem;
+      max-width: 10rem;
+      font-size: 14px;
+    }
+  
+    &__avatar {
+      position: absolute; 
+      top: 15px; 
+      right: 15px; 
+      grid-area: avatar;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      vertical-align: bottom;
+    }
+  
+    @media (max-width: 425px) {
+
+      &__author-info {
+        padding: 5px 
+      }
+
+      &__content {
+        padding: 5px;
+      }
+
+      &__author {
+        font-size: 18px;
+        top: 5px;
+        right: 25px;
+      }
+
+      &__avatar {
+        width: 50px;
+        height: 50px;
+        top: 50%;
+        right: 15px;
+      }
+
+      &__date {
+        font-size: 14px;
+        width: 5rem;
+        top: 25px;
+        right: 15px;
+      }
+    }
+  }
+
+  .ant-btn-default {
+    box-shadow: none !important;
+  }
+  
