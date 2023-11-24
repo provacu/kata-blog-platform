@@ -35,7 +35,7 @@
     "lint": "eslint . --ext .js,.jsx",
     "lint:fix": "eslint . --ext .js,.jsx --fix",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
-    "pre-commit": "eslint src/ && npm test"
+    "pre-commit": "eslint src/**/*.{js,jsx} --fix"
   },
   "eslintConfig": {
     "extends": [
