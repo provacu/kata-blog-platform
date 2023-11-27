@@ -16,6 +16,7 @@ export default function EditArticleForm() {
   const dispatch = useDispatch();
   const [tags, setTags] = useState([]);
   const [inputTag, setInputTag] = useState('');
+  const [tagError, setTagError] = useState('');
   const {
     register,
     handleSubmit,
@@ -47,10 +48,21 @@ export default function EditArticleForm() {
   };
 
   const handleTagAdd = () => {
-    if (inputTag && !tags.some((tag) => tag.value === inputTag)) {
-      setTags([...tags, { id: uuidv4(), value: inputTag }]);
-      setInputTag('');
+    const trimmedInputTag = inputTag.trim();
+
+    if (!trimmedInputTag) {
+      setTagError('Tag cannot be empty or just spaces');
+      return;
     }
+
+    if (tags.some((tag) => tag.value === trimmedInputTag)) {
+      setTagError('Tag is already added');
+      return;
+    }
+
+    setTags([...tags, { id: uuidv4(), value: trimmedInputTag }]);
+    setInputTag('');
+    setTagError('');
   };
 
   const onSubmit = async (data) => {
@@ -100,6 +112,10 @@ export default function EditArticleForm() {
                 value: 250,
                 message: 'Title must be less than 250 characters',
               },
+              pattern: {
+                value: /\S/,
+                message: 'Title cannot be empty or just spaces',
+              },
             })}
           />
           {errors.title && (
@@ -121,6 +137,10 @@ export default function EditArticleForm() {
                 value: 300,
                 message: 'Description must be less than 300 characters',
               },
+              pattern: {
+                value: /\S/,
+                message: 'Short description cannot be empty or just spaces',
+              },
             })}
           />
           {errors.description && (
@@ -138,7 +158,13 @@ export default function EditArticleForm() {
             placeholder="Text"
             className="new-article-form__textarea"
             id="text"
-            {...register('text', { required: 'Text is required' })}
+            {...register('text', {
+              required: 'Text is required',
+              pattern: {
+                value: /\S/,
+                message: 'Text cannot be empty or just spaces',
+              },
+            })}
           />
           {errors.text && (
             <p className="new-article-form__error">{errors.text.message}</p>
@@ -191,6 +217,7 @@ export default function EditArticleForm() {
               </Button>
             </div>
           </div>
+          {tagError && <p className="new-article-form__error">{tagError}</p>}
         </label>
       </div>
 

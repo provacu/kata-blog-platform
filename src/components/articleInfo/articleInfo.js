@@ -19,6 +19,7 @@ function ArticleInfo({ article, onLikeUnlike, isLiked }) {
   const isArticlePage = window.location.pathname.includes(
     `/articles/${article.slug}`,
   );
+  const isValidTag = (tag) => tag && tag.trim().length > 0;
 
   const handleLikeUnlikeClick = (e) => {
     e.preventDefault();
@@ -64,7 +65,7 @@ function ArticleInfo({ article, onLikeUnlike, isLiked }) {
         </div>
         <div className="article-info__tags">
           {article.tagList &&
-            article.tagList.map((tag) => (
+            article.tagList.filter(isValidTag).map((tag) => (
               <Tag
                 title={tag}
                 style={{ border: '1px solid #00000080' }}
